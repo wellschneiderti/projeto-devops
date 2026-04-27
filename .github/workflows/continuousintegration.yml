@@ -41,7 +41,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Discord Webook
-        uses: johnnyhuy/actions-discord-git-webook@main
+        uses: Sniddl/discord-commits@v1.6
         with:
           webhook_url: ${{ secrets.DICORD_WEBHOOK }}
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          template: "avatar-with-link"
+          include-extras: true
           
