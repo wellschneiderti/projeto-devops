@@ -15,3 +15,33 @@ jobs:
         uses: advanced-security/python-lint-code-scanning-action@v1.1.1
         with:
           linter: pylint
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: user/app:latest
+
+  discord:
+    runs-on: ubuntu-lastest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Discord Webook
+        uses: johnnyhuy/actions-discord-git-webook@main
+        with:
+          webhook_url: ${{ secrets.DICORD_WEBHOOK }}
+          
