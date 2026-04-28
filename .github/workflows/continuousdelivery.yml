@@ -19,5 +19,5 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           status: ${{ job.status }}
-          content: "Opa! O Deploy do well foi finalizado!"
+          content: "OlA! O Deploy do wells foi finalizado!"
           title: "Status do Workflow"
